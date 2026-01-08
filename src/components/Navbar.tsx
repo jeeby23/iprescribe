@@ -55,7 +55,7 @@ export const Navbar = () => {
 
         <div className="flex md:hidden items-center gap-3">
           <button className="bg-[#4C51BF] text-white px-4 py-1.5 rounded-3xl font-medium text-[14px]">
-            Join Waitlist
+            <Link to="/login">Join Waitlist</Link>
           </button>
           <IconButton onClick={() => toggleMenu(true)} sx={{ color: '#718096' }}>
             <MenuIcon />
