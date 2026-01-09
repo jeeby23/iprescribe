@@ -19,7 +19,9 @@ export const Hero = () => {
         <div className="flex flex-col gap-6 items-center md:items-start text-center md:text-left">
           <div className="inline-flex items-center gap-2 bg-[#689AFF1A] rounded-md px-4 py-1.5 w-fit border border-slate-100 shadow-sm">
             <img src={icon} alt="iPrescribe Icon" className="h-6 w-12" />
-            <span className="text-[10px] md:text-sm font-medium text-[#2065D1]">Ready to explore iPrescribe?</span>
+            <span className="text-[10px] md:text-sm font-medium text-[#2065D1]">
+              Ready to explore iPrescribe?
+            </span>
             <span className="text-[10px] md:text-sm font-bold text-[#4C51BF] cursor-pointer">
               <Link to="/login">Join Waitlist →</Link>
             </span>

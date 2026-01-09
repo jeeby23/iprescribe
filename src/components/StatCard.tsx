@@ -1,15 +1,15 @@
 // src/features/dashboard/components/StatCard.tsx
-import React from 'react';
-import { Paper, Box, Typography } from '@mui/material';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import React from 'react'
+import { Paper, Box, Typography } from '@mui/material'
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 
 interface StatCardProps {
-  title: string;
-  value: string | number;
-  percentage: string;
-  bgColor: string;
-  iconColor: string;
-  Icon: React.ElementType;
+  title: string
+  value: string | number
+  percentage: string
+  bgColor: string
+  iconColor: string
+  Icon: React.ElementType
 }
 
 export const StatCard = ({ title, value, percentage, bgColor, iconColor, Icon }: StatCardProps) => {
@@ -19,7 +19,7 @@ export const StatCard = ({ title, value, percentage, bgColor, iconColor, Icon }:
       sx={{
         p: 3,
         borderRadius: '16px',
-        bgcolor: bgColor, 
+        bgcolor: bgColor,
         flex: 1,
         minWidth: '200px',
       }}
@@ -28,13 +28,13 @@ export const StatCard = ({ title, value, percentage, bgColor, iconColor, Icon }:
         <Typography variant="body2" sx={{ color: '#718096', fontWeight: 500, fontSize: '12px' }}>
           {title}
         </Typography>
-        <Box 
-          sx={{ 
-            bgcolor: iconColor, 
-            p: 0.5, 
-            borderRadius: '10px', 
-            display: 'flex', 
-            alignItems: 'center' 
+        <Box
+          sx={{
+            bgcolor: iconColor,
+            p: 0.5,
+            borderRadius: '10px',
+            display: 'flex',
+            alignItems: 'center',
           }}
         >
           <Icon sx={{ fontSize: '18px', color: '#FFFFFF' }} />
@@ -55,5 +55,5 @@ export const StatCard = ({ title, value, percentage, bgColor, iconColor, Icon }:
         </Typography>
       </Box>
     </Paper>
-  );
-};
+  )
+}

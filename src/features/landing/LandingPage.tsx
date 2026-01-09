@@ -1,6 +1,6 @@
-import { MainLayout } from '../../layouts/MainLayout';
-import { Hero } from './Hero';
-import { WaitlistSection } from './WaitlistSection';
+import { MainLayout } from '../../layouts/MainLayout'
+import { Hero } from './Hero'
+import { WaitlistSection } from './WaitlistSection'
 
 export const LandingPage = () => {
   return (
@@ -8,5 +8,5 @@ export const LandingPage = () => {
       <Hero />
       <WaitlistSection />
     </MainLayout>
-  );
-};
+  )
+}
