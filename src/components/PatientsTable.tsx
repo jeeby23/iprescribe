@@ -9,8 +9,8 @@ import type { PatientRecord } from '../types/api';
 
 export const PatientsTable = ({ data }: { data: PatientRecord[] }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [showAll, setShowAll] = useState(false);
 
-  // DEFENSIVE FILTERING: Safely handles null values from API
   const filteredData = (data || []).filter(patient => {
     const fName = patient?.user?.first_name || "";
     const lName = patient?.user?.last_name || "";
@@ -26,6 +26,8 @@ export const PatientsTable = ({ data }: { data: PatientRecord[] }) => {
       pId.toLowerCase().includes(searchStr)
     );
   });
+
+  const displayData = showAll ? filteredData : filteredData.slice(0, 5);
 
   return (
     <Paper elevation={0} sx={{ p: 3, borderRadius: '16px', border: '1px solid #F1F5F9', mt: 4 }}>
@@ -47,8 +49,24 @@ export const PatientsTable = ({ data }: { data: PatientRecord[] }) => {
             }}
             sx={{ '& .MuiOutlinedInput-root': { borderRadius: '8px', bgcolor: '#F8FAFC' } }}
           />
-          <Typography sx={{ color: '#283C85', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-            See All <ChevronRightIcon fontSize="small" />
+          {/* TOGGLE BUTTON: Changes state on click */}
+          <Typography 
+            onClick={() => setShowAll(!showAll)}
+            sx={{ 
+              color: '#283C85', 
+              fontWeight: 600, 
+              cursor: 'pointer', 
+              display: 'flex', 
+              alignItems: 'center',
+              userSelect: 'none',
+              '&:hover': { opacity: 0.8 }
+            }}
+          >
+            {showAll ? 'Show Less' : 'See All'} 
+            <ChevronRightIcon 
+              fontSize="small" 
+              sx={{ transform: showAll ? 'rotate(90deg)' : 'none', transition: '0.2s' }} 
+            />
           </Typography>
         </Box>
       </Box>
@@ -65,8 +83,8 @@ export const PatientsTable = ({ data }: { data: PatientRecord[] }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredData.length > 0 ? (
-              filteredData.map((row, index) => (
+            {displayData.length > 0 ? (
+              displayData.map((row, index) => (
                 <TableRow key={row.id} sx={{ '&:hover': { bgcolor: '#F1F5F9' } }}>
                   <TableCell sx={{ fontSize: '13px' }}>{index + 1}</TableCell>
                   <TableCell sx={{ fontSize: '13px' }}>

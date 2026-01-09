@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material'
 import heroImg from '../../assets/hero.webp'
 import Googleplay from '../../assets/Google.svg'
 import Appstore from '../../assets/Apple.svg'
-import icon from '../../assets/icon.svg'
+import icon from '../../assets/Icon.svg'
 import { Link } from 'react-router-dom'
 
 export const Hero = () => {

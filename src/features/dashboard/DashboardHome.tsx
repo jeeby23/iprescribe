@@ -32,7 +32,9 @@ export const DashboardHome = () => {
 
       <Grid container spacing={3} sx={{ mb: 4 }}>
         <Grid size={{ xs: 12, lg: 6 }}>
-          {cL ? <Skeleton variant="rectangular" height={400} sx={{ borderRadius: '16px' }} /> : (
+          {cL ? (
+            <Skeleton variant="rectangular" height={400} sx={{ borderRadius: '16px' }} />
+          ) : (
             <DashboardChart 
               title="Consultation Over Time" 
               data={consultationsData} 
@@ -43,7 +45,9 @@ export const DashboardHome = () => {
           )}
         </Grid>
         <Grid size={{ xs: 12, lg: 6 }}>
-          {cL ? <Skeleton variant="rectangular" height={400} sx={{ borderRadius: '16px' }} /> : (
+          {cL ? (
+            <Skeleton variant="rectangular" height={400} sx={{ borderRadius: '16px' }} />
+          ) : (
             <DashboardChart 
               title="Prescription Volume Trend" 
               data={prescriptionsData} 
@@ -56,16 +60,21 @@ export const DashboardHome = () => {
       </Grid>
       <Grid container spacing={3} sx={{ mb: 4 }}>
         <Grid size={{ xs: 12, lg: 7 }}>
-          {cL ? <Skeleton variant="rectangular" height={400} sx={{ borderRadius: '16px' }} /> : (
+          {cL ? (
+            <Skeleton variant="rectangular" height={400} sx={{ borderRadius: '16px' }} />
+          ) : (
             <ActiveUsersBarChart data={charts?.barData || []} />
           )}
         </Grid>
         <Grid size={{ xs: 12, lg: 5 }}>
-          {cL ? <Skeleton variant="rectangular" height={400} sx={{ borderRadius: '16px' }} /> : (
+          {cL ? (
+            <Skeleton variant="rectangular" height={400} sx={{ borderRadius: '16px' }} />
+          ) : (
             <SpecialtyDonutChart data={charts?.specialties || []} />
           )}
         </Grid>
       </Grid>
+
       <Box sx={{ width: '100%', overflowX: 'auto' }}>
         {pL ? (
           <Skeleton variant="rectangular" height={300} sx={{ borderRadius: '16px' }} />

@@ -32,6 +32,9 @@ export const useDashboardCharts = () => {
       const doctorsSeries = data?.active_doctors_vs_patients?.series?.[0]?.data || [];
       const patientsSeries = data?.active_doctors_vs_patients?.series?.[1]?.data || [];
 
+      // EXACT FIGMA COLORS
+      const chartColors = ['#38CBAD', '#5078F2', '#F27281', '#F2A62C'];
+
       return {
         consultations: data?.consultationOverTime?.map(c => ({ name: c.month, consultations: c.count })) || [],
         prescriptions: data?.prescriptionVolumeTrend?.map(p => ({ name: p.month, prescriptions: p.count })) || [],
@@ -40,7 +43,11 @@ export const useDashboardCharts = () => {
           doctors: doctorsSeries[i] || 0,
           patients: patientsSeries[i] || 0,
         })),
-        specialties: data?.top_specialities_in_demand?.map(s => ({ name: s.speciality, value: s.count, color: '#3182CE' })) || []
+        specialties: data?.top_specialities_in_demand?.map((s, index) => ({ 
+          name: s.speciality, 
+          value: s.count, 
+          color: chartColors[index % chartColors.length] 
+        })) || []
       };
     },
   });

@@ -1,48 +1,48 @@
 import { Paper, Box, Typography, Grid } from '@mui/material';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
+const CustomPieTooltip = ({ active, payload }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <Box sx={{ bgcolor: '#2D3748', color: '#fff', px: 2, py: 1, borderRadius: '8px', display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ bgcolor: payload[0].payload.color, width: 18, height: 18, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Typography sx={{ fontSize: '10px' }}>↗</Typography>
+        </Box>
+        <Typography sx={{ fontSize: '12px', fontWeight: 600 }}>{payload[0].name}</Typography>
+      </Box>
+    );
+  }
+  return null;
+};
+
 export const SpecialtyDonutChart = ({ data }: { data: any[] }) => {
   return (
     <Paper elevation={0} sx={{ p: 3, borderRadius: '16px', border: '1px solid #F1F5F9', height: '100%' }}>
-      <Typography variant="h6" sx={{ fontWeight: 600, mb: 3, color: '#4A5568', fontSize: '16px' }}>
+      <Typography variant="h6" sx={{ fontWeight: 700, mb: 4, color: '#4A5568', fontSize: '18px' }}>
         Top Specialties in Demand
       </Typography>
       <Box sx={{ display: 'flex', alignItems: 'center', height: 250 }}>
         <ResponsiveContainer width="50%" height="100%">
           <PieChart>
-            <Pie data={data} innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value">
+            <Pie data={data} innerRadius={65} outerRadius={85} paddingAngle={0} dataKey="value" stroke="none">
               {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={entry.color} strokeWidth={0} />
+                <Cell key={`cell-${index}`} fill={entry.color} />
               ))}
             </Pie>
-            <Tooltip />
-            {/* Added dominantBaseline and textAnchor for SVG positioning */}
-            <text 
-              x="50%" 
-              y="50%" 
-              textAnchor="middle" 
-              dominantBaseline="middle" 
-              style={{ fontSize: '20px', fontWeight: 700, fill: '#1A202C' }}
-            >
+            <Tooltip content={<CustomPieTooltip />} />
+            <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" style={{ fontSize: '24px', fontWeight: 800, fill: '#1A202C', fontFamily: 'Onest' }}>
               30%
             </text>
           </PieChart>
         </ResponsiveContainer>
-        
-        <Box sx={{ width: '50%', pl: 2 }}>
-          {/* Grid container remains the same */}
-          <Grid container spacing={2}>
+        <Box sx={{ width: '50%', pl: 4 }}>
+          <Grid container spacing={3}>
             {data.map((item) => (
-              /* FIXED: Removed 'item' and used 'size' prop for modern MUI Grid */
-              <Grid key={item.name} size={{ xs: 6 }}>
-                <Typography variant="caption" sx={{ color: '#A0AEC0', display: 'block' }}>
-                  {item.name}
-                </Typography>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: item.color }} />
-                  <Typography variant="h6" sx={{ fontWeight: 700 }}>
-                    {item.value}
-                  </Typography>
+              <Grid size={{ xs: 6 }} key={item.name}>
+                <Typography variant="caption" sx={{ color: '#A0AEC0', fontWeight: 600, fontSize: '13px' }}>{item.name}</Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 0.5 }}>
+                  <Box sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: item.color }} />
+                  <Typography variant="h5" sx={{ fontWeight: 800, color: '#1A202C', fontSize: '20px' }}>{item.value}</Typography>
                 </Box>
               </Grid>
             ))}
