@@ -66,8 +66,6 @@ export const useDashboardCharts = () => {
       const barCategories = data?.active_doctors_vs_patients?.categories || []
       const doctorsSeries = data?.active_doctors_vs_patients?.series?.[0]?.data || []
       const patientsSeries = data?.active_doctors_vs_patients?.series?.[1]?.data || []
-
-      // EXACT FIGMA COLORS
       const chartColors = ['#38CBAD', '#5078F2', '#F27281', '#F2A62C']
 
       return {
