@@ -1,3 +1,16 @@
+export interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface AuthResponse {
+  data: {
+    user: User;
+    token: string;
+  };
+  message?: string;
+}
+
 export interface User {
   id: number;
   email: string;

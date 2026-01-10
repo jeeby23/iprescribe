@@ -135,7 +135,7 @@ export const DashboardChart = ({ title, data, dataKey, strokeColor, fillColor }:
               axisLine={false}
               tickLine={false}
               tick={{ fill: '#A0AEC0', fontSize: 13 }}
-              ticks={[20, 40, 60, 80, 100]}
+              ticks={[0, 20, 40, 60, 80, 100]}
               domain={[0, 100]}
             />
             <Tooltip
