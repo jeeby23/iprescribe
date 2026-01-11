@@ -42,7 +42,13 @@ export const PatientsTable = ({ data }: { data: PatientRecord[] }) => {
   return (
     <Paper elevation={0} sx={{ p: 3, borderRadius: '16px', border: '1px solid #F1F5F9', mt: 4 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '18px' }}>
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: 700,
+            fontSize: { xs: '10px', md: '18px' },
+          }}
+        >
           Recent Patients Sign Up
         </Typography>
 
@@ -66,11 +72,13 @@ export const PatientsTable = ({ data }: { data: PatientRecord[] }) => {
             onClick={() => setShowAll(!showAll)}
             sx={{
               color: '#283C85',
-              fontWeight: 600,
+              fontWeight: 400,
+              fontSize: '14px',
               cursor: 'pointer',
-              display: 'flex',
+              display: 'flex-row',
               alignItems: 'center',
               userSelect: 'none',
+
               '&:hover': { opacity: 0.8 },
             }}
           >

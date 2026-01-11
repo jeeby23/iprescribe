@@ -1,4 +1,3 @@
-// src/features/dashboard/components/StatCard.tsx
 import React from 'react'
 import { Paper, Box, Typography } from '@mui/material'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'

@@ -1,4 +1,3 @@
-// src/App.tsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ThemeProvider } from '@mui/material/styles'
@@ -27,7 +26,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-        <ToastContainer position="bottom-right" autoClose={3000} />
+        <ToastContainer position="bottom-right" autoClose={2000} />
       </ThemeProvider>
     </QueryClientProvider>
   )
